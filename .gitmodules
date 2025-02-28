@@ -1,0 +1,6 @@
+[submodule "wdtb_back"]
+	path = wdtb_back
+	url = https://github.com/changchanghwang/wdtb_back.git
+[submodule "wdtb_front"]
+	path = wdtb_front
+	url = https://github.com/changchanghwang/wdtb_front.git

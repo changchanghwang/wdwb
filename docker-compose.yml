@@ -1,0 +1,31 @@
+services:
+  db:
+    image: mysql:8.0.36
+    environment:
+      - MYSQL_ROOT_PASSWORD=1234
+      - MYSQL_DATABASE=wdwb
+    ports:
+      - "3306:3306"
+  server:
+    build:
+      context: ./wdwb_back
+      dockerfile: ../Dockerfile.server
+    environment:
+      - ORIGIN=http://server:3344
+      - APP_ENV=development
+      - PORT=3344
+      - DB_USER=root
+      - DB_PASSWORD=1234
+      - DB_HOST=db
+      - DB_PORT=3306
+      - DB_NAME=wdwb
+    ports:
+      - "3344:3344"
+    volumes:
+      - ./wdwb_back/cmd:/app/wdwb_back/cmd
+      - ./wdwb_back/internal:/app/wdwb_back/internal
+      - ./wdwb_back/docs:/app/wdwb_back/docs
+      - ./wdwb_back/pkg:/app/wdwb_back/pkg
+    restart: always
+    depends_on:
+      - db

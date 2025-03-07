@@ -22,10 +22,10 @@ services:
     ports:
       - "3344:3344"
     volumes:
-      - ./wdwb_back/cmd:/app/wdwb_back/cmd
-      - ./wdwb_back/internal:/app/wdwb_back/internal
-      - ./wdwb_back/docs:/app/wdwb_back/docs
-      - ./wdwb_back/pkg:/app/wdwb_back/pkg
+      - ./wdwb_back/cmd:/app/cmd
+      - ./wdwb_back/internal:/app/internal
+      - ./wdwb_back/docs:/app/docs
+      - ./wdwb_back/pkg:/app/pkg
     restart: always
     depends_on:
       - db

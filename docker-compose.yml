@@ -19,6 +19,7 @@ services:
       - DB_HOST=db
       - DB_PORT=3306
       - DB_NAME=wdwb
+      - SYNC_SECRET=1234
     ports:
       - "3344:3344"
     volumes:
